@@ -18,7 +18,7 @@ To compute distortion coefficients, I iteratively find imgpoints for each provid
 
 
 ## Pipeline (single images)
-1. The image was undistorted with camera matrix and distortion coefficients. In the second cell of SDC_P4.ipynb.
+1. The image was undistorted with camera matrix and distortion coefficients. In the second cell of P4.ipynb.
    (the result is "undistorted image" below)
 
 2. To generate wanted binary image, pick yellow and white areas are picked in HSV, and Saturation channel was      used to find out possible areas that fit the threshold. 
@@ -58,4 +58,4 @@ Here are results for a single image processing:
 
 In this project, I tried different kinds of gradient selection methed, but most of them did not give satifying results for most cases. In this pipeline, I choose to use horizontal gradients which performs relatively better than other methods. Comparatively, color selection works much better for most images. 
 One drawback of relying too much on color selection is that the algorithm would probably fail when the image become too bright or too dark.
-In order to tune parameters efficiently, I gather those frequently tuned params in a Config class so that grid search can be applied easily for further optimization. However, I would have to stop here and move on for project 5.
+In order to tune parameters efficiently, I gather those frequently tuned parameters in a Config class so that grid search can be applied easily for further optimization.
