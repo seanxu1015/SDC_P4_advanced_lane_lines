@@ -21,16 +21,16 @@ To compute distortion coefficients, I iteratively find imgpoints for each provid
 1. The image was undistorted with camera matrix and distortion coefficients. In the second cell of P4.ipynb.
    (the result is "undistorted image" below)
 
-2. To generate wanted binary image, pick yellow and white areas are picked in HSV, and Saturation channel was      used to find out possible areas that fit the threshold. 
+2. To generate wanted binary image, yellow and white areas are picked in HSV, and Saturation channel was      used to find out possible areas that fit the threshold. 
 
-3. These color selections were combined with horizontal gradients selection to produce a binary image. 
+3. These color selections were combined with horizontal gradient selection to produce a binary image. 
 
 4. Region selection (a trapezoid) was applied to the binary image (the "selected binary" below), and transformed    it into bird-eye perspective (the result is "binary warped") with cv2.warpPerspective. The source points and 
    destination points are setted in Config class.
    
 5. Find lane lines with the binary warped image. To do this, 
    a. the warped image was splitted vertically (say 25 pixels from 450 to 720, that is to say the image was           splitted into 10 pieces with size of 1280*25);
-   b. applied the histogram method introduce in the course to each piece;
+   b. applied the histogram method introduced in the course to each piece;
    c. split each piece horizontally and find out the left and right center respectively;
    d. search the points that around the left center points and right center points and fit a second order             polynomial line for left side and right side respectively,
       (the result is "undistorted warped");
